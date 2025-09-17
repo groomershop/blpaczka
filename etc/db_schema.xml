@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  BLPaczka
+ * @package   BLPaczka\MagentoIntegration
+ * @copyright 2024 Copyright (c) BLPaczka (https://blpaczka.com)
+ *
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="quote" resource="default" engine="innodb">
+        <column xsi:type="text" name="blpaczka_pudo_point" nullable="true" comment="blpaczka_pudo_point" />
+    </table>
+
+    <table name="sales_order" resource="default" engine="innodb">
+        <column xsi:type="text" name="blpaczka_pudo_point" nullable="true" comment="blpaczka_pudo_point" />
+        <column xsi:type="text" name="blpaczka_order_data" nullable="true" comment="blpaczka_order_data" />
+        <column xsi:type="mediumblob" name="blpaczka_shipping_label_blpaczka_a4" nullable="true" comment="blpaczka_shipping_label_blpaczka_a4" />
+        <column xsi:type="mediumblob" name="blpaczka_shipping_label_blpaczka_a6" nullable="true" comment="blpaczka_shipping_label_blpaczka_a6" />
+    </table>
+</schema>

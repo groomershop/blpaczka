@@ -1,0 +1,187 @@
+"BLPaczka Shipping Service", "Dostawy BLPaczka",module,BLPaczka_MagentoIntegration
+"Select a collection point", "Wybierz punkt odbioru",module,BLPaczka_MagentoIntegration
+"Change collection point", "Zmień punkt odbioru",module,BLPaczka_MagentoIntegration
+"%1: Collection points map", "%1: Mapa punktów odbioru",module,BLPaczka_MagentoIntegration
+"Close", "Zamknij",module,BLPaczka_MagentoIntegration
+"The collection point is required. Open the map and select the point.", "Punkt odbioru jest wymagany. Otwórz mapę i wybierz punkt.",module,BLPaczka_MagentoIntegration
+"BLPaczka Courier", "BLPaczka Courier",module,BLPaczka_MagentoIntegration
+"Enabled", "Włączone",module,BLPaczka_MagentoIntegration
+"PUDO", "PUDO",module,BLPaczka_MagentoIntegration
+"Label in the checkout", "Etykieta w kasie",module,BLPaczka_MagentoIntegration
+"Cost", "Koszt",module,BLPaczka_MagentoIntegration
+"Yes", "Tak",module,BLPaczka_MagentoIntegration
+"No", "Nie",module,BLPaczka_MagentoIntegration
+"Sandbox", "Testowy",module,BLPaczka_MagentoIntegration
+"Production", "Produkcyjny",module,BLPaczka_MagentoIntegration
+"Sandbox Mode", "Tryb Testowy",module,BLPaczka_MagentoIntegration
+"Production Mode", "Tryb Produkcyjny",module,BLPaczka_MagentoIntegration
+"BLPaczka","BLPaczka",module,BLPaczka_MagentoIntegration
+"Enabled","Włączone",module,BLPaczka_MagentoIntegration
+"Title","Tytuł",module,BLPaczka_MagentoIntegration
+"Mode","Tryb",module,BLPaczka_MagentoIntegration
+"Sandbox Login","Login Sandbox",module,BLPaczka_MagentoIntegration
+"Sandbox Api Key","Klucz API Sandbox",module,BLPaczka_MagentoIntegration
+"Production Login","Login produkcyjny",module,BLPaczka_MagentoIntegration
+"Production Api Key","Klucz API produkcyjny",module,BLPaczka_MagentoIntegration
+"Title in the Checkout","Tytuł w kasie",module,BLPaczka_MagentoIntegration
+"Sort Order","Kolejność sortowania",module,BLPaczka_MagentoIntegration
+"Couriers Default Cost","Domyślny koszt kuriera",module,BLPaczka_MagentoIntegration
+"Ship to Applicable Countries","Wysyłka do odpowiednich krajów",module,BLPaczka_MagentoIntegration
+"Ship to Specific Countries","Wysyłka do określonych krajów",module,BLPaczka_MagentoIntegration
+"Show Method if not applicable","Pokaż metodę, jeśli nie ma zastosowania",module,BLPaczka_MagentoIntegration
+"Couriers with a map of delivery points","Kurierzy z mapą punktów dostawy",module,BLPaczka_MagentoIntegration
+"Couriers with required map of delivery points","Kurierzy z wymaganą mapą punktów dostawy",module,BLPaczka_MagentoIntegration
+"Couriers Config","Konfiguracja kurierów",module,BLPaczka_MagentoIntegration
+"Post","Poczta",module,BLPaczka_MagentoIntegration
+"Post eCommerce Envelope","Poczta eCommerce Koperta",module,BLPaczka_MagentoIntegration
+"DPD","DPD",module,BLPaczka_MagentoIntegration
+"UPS","UPS",module,BLPaczka_MagentoIntegration
+"DHL","DHL",module,BLPaczka_MagentoIntegration
+"BLP Cross-Border","BLP Cross-Border",module,BLPaczka_MagentoIntegration
+"BLP Cross-Border Eco","BLP Cross-Border Eco",module,BLPaczka_MagentoIntegration
+"FedEx","FedEx",module,BLPaczka_MagentoIntegration
+"GLS","GLS",module,BLPaczka_MagentoIntegration
+"Hellman","Hellman",module,BLPaczka_MagentoIntegration
+"InPost","InPost",module,BLPaczka_MagentoIntegration
+"Orlen","Orlen",module,BLPaczka_MagentoIntegration
+"InPost Parcel Locker","InPost Paczkomat",module,BLPaczka_MagentoIntegration
+"InPost Parcel Locker Eco","InPost Paczkomat Eco",module,BLPaczka_MagentoIntegration
+"InPost Parcel Locker to Door","InPost Paczkomat do drzwi",module,BLPaczka_MagentoIntegration
+"InPost Parcel Locker Allegro Smart","InPost Paczkomat Allegro Smart",module,BLPaczka_MagentoIntegration
+"DPD Allegro Smart","DPD Allegro Smart",module,BLPaczka_MagentoIntegration
+"Allegro Smart eCommerce","Allegro Smart eCommerce",module,BLPaczka_MagentoIntegration
+"Allegro Smart Post","Allegro Smart Poczta",module,BLPaczka_MagentoIntegration
+"Close","Zamknij",module,BLPaczka_MagentoIntegration
+"Connection","Połączenie",module,BLPaczka_MagentoIntegration
+"Test Connection","Testuj Połączenie",module,BLPaczka_MagentoIntegration
+"How to get Email and Api Key?","Jak uzyskać Login i Klucz API?",module,BLPaczka_MagentoIntegration
+"You are connected with BLPaczka!","Połączenie z BLPaczka jest poprawne!",module,BLPaczka_MagentoIntegration
+"You are not connected with BLPaczka!","Połączenie z BLPaczka nie jest poprawne!",module,BLPaczka_MagentoIntegration
+"You are not connected with BLPaczka! Save configuration and try again.","Połączenie z BLPaczka nie jest poprawne! Sprawdź konfigurację i spróbuj ponownie.",module,BLPaczka_MagentoIntegration
+"BLPaczka Request Error: %1","Błąd połączenia z BLPaczka: %1",module,BLPaczka_MagentoIntegration
+"Save all changes before check!","Zapisz wszystkie zmiany przed sprawdzeniem!",module,BLPaczka_MagentoIntegration
+"Bank Payment","Skarbonka",module,BLPaczka_MagentoIntegration
+"Pay Later","Płatność odroczona",module,BLPaczka_MagentoIntegration
+"Local","Lokalny",module,BLPaczka_MagentoIntegration
+"Foreign","Zagraniczny",module,BLPaczka_MagentoIntegration
+"Package","Paczka",module,BLPaczka_MagentoIntegration
+"Pallet","Paleta",module,BLPaczka_MagentoIntegration
+"Envelope","Koperta",module,BLPaczka_MagentoIntegration
+"Not Standard","Niestandardowy",module,BLPaczka_MagentoIntegration
+"Default Shipping Details","Domyślne dane wysyłki",module,BLPaczka_MagentoIntegration
+"Type","Typ",module,BLPaczka_MagentoIntegration
+"Weight","Waga",module,BLPaczka_MagentoIntegration
+"Length","Długość",module,BLPaczka_MagentoIntegration
+"Width","Szerokość",module,BLPaczka_MagentoIntegration
+"Height","Wysokość",module,BLPaczka_MagentoIntegration
+"Content","Zawartość",module,BLPaczka_MagentoIntegration
+"Insurance Total","Całkowite ubezpieczenie",module,BLPaczka_MagentoIntegration
+"Cash On Delivery Total","Całkowite płatności przy odbiorze",module,BLPaczka_MagentoIntegration
+"Sortable","Sortowalne",module,BLPaczka_MagentoIntegration
+"Without Courier Pick Up","Bez podjazdu kuriera",module,BLPaczka_MagentoIntegration
+"Courier Arrival in (days)","Przybycie kuriera za (dni)",module,BLPaczka_MagentoIntegration
+"The default courier arrival date will be the date the form was opened + the number of days set in this field.","Domyślna data przybycia kuriera to data otwarcia formularza + liczba dni ustawiona w tym polu.",module,BLPaczka_MagentoIntegration
+"Courier Arrival Time From","Czas przybycia kuriera od",module,BLPaczka_MagentoIntegration
+"Courier Arrival Time To","Czas przybycia kuriera do",module,BLPaczka_MagentoIntegration
+"Default Sender","Domyślny nadawca",module,BLPaczka_MagentoIntegration
+"Full Name","Pełna nazwa",module,BLPaczka_MagentoIntegration
+"Company","Firma",module,BLPaczka_MagentoIntegration
+"Email","E-mail",module,BLPaczka_MagentoIntegration
+"Street","Ulica",module,BLPaczka_MagentoIntegration
+"House Number","Numer domu",module,BLPaczka_MagentoIntegration
+"Apartment Number","Numer mieszkania",module,BLPaczka_MagentoIntegration
+"Post Code","Kod pocztowy",module,BLPaczka_MagentoIntegration
+"City","Miasto",module,BLPaczka_MagentoIntegration
+"Phone Number","Numer telefonu",module,BLPaczka_MagentoIntegration
+"Default Payment","Domyślna płatność",module,BLPaczka_MagentoIntegration
+"Type","Typ",module,BLPaczka_MagentoIntegration
+"You are connected with BLPaczka!","Jesteś połączony z BLPaczka!",module,BLPaczka_MagentoIntegration
+"You are not connected with BLPaczka!","Nie jesteś połączony z BLPaczka!",module,BLPaczka_MagentoIntegration
+"BLPaczka Request Error: %1","Błąd zapytania do BLPaczka: %1",module,BLPaczka_MagentoIntegration
+"BLPaczka Shipment","Wysyłka BLPaczka",module,BLPaczka_MagentoIntegration
+"Shipping Details","Szczegóły wysyłki",module,BLPaczka_MagentoIntegration
+"The Shipping Method selected by the customer","Metoda wysyłki wybrana przez klienta",module,BLPaczka_MagentoIntegration
+"Courier Code","Kod kuriera",module,BLPaczka_MagentoIntegration
+"Courier","Kurier",module,BLPaczka_MagentoIntegration
+"Country Code","Kod kraju",module,BLPaczka_MagentoIntegration
+"Is Foreign?","Czy zagraniczny?",module,BLPaczka_MagentoIntegration
+"Shipment Type","Rodzaj przesyłki",module,BLPaczka_MagentoIntegration
+"Weight (kg)","Waga (kg)",module,BLPaczka_MagentoIntegration
+"Length (cm)","Długość (cm)",module,BLPaczka_MagentoIntegration
+"Width (cm)","Szerokość (cm)",module,BLPaczka_MagentoIntegration
+"Height (cm)","Wysokość (cm)",module,BLPaczka_MagentoIntegration
+"Contents of the shipment","Zawartość przesyłki",module,BLPaczka_MagentoIntegration
+"Insurance Total (in PLN)","Wartość Ubezpieczenia (w zł)",module,BLPaczka_MagentoIntegration
+"Cash on Delivery Total (in PLN)","Wartość Pobrania (w zł)",module,BLPaczka_MagentoIntegration
+"Sortable","Sortowalne",module,BLPaczka_MagentoIntegration
+"Without courier pick-up","Bez podjazdu kuriera",module,BLPaczka_MagentoIntegration
+"Courier arrival day","Dzień przyjazdu kuriera",module,BLPaczka_MagentoIntegration
+"Time FROM which the courier can arrive:","Czas OD którego kurier może przybyć:",module,BLPaczka_MagentoIntegration
+"Time BY which the courier can arrive:","Czas DO którego kurier może przybyć:",module,BLPaczka_MagentoIntegration
+"Sender Details","Dane nadawcy",module,BLPaczka_MagentoIntegration
+"Full name","Pełne imię i nazwisko",module,BLPaczka_MagentoIntegration
+"Company","Firma",module,BLPaczka_MagentoIntegration
+"E-mail","E-mail",module,BLPaczka_MagentoIntegration
+"Street Address","Adres ulicy",module,BLPaczka_MagentoIntegration
+"House Number","Numer domu",module,BLPaczka_MagentoIntegration
+"Apartment Number","Numer mieszkania",module,BLPaczka_MagentoIntegration
+"Post Code","Kod pocztowy",module,BLPaczka_MagentoIntegration
+"City","Miasto",module,BLPaczka_MagentoIntegration
+"Phone Number","Numer telefonu",module,BLPaczka_MagentoIntegration
+"Recipient Details","Dane odbiorcy",module,BLPaczka_MagentoIntegration
+"Point Number","Numer punktu",module,BLPaczka_MagentoIntegration
+"Check if the address is correctly separated into parts","Sprawdź, czy adres jest poprawnie podzielony na części",module,BLPaczka_MagentoIntegration
+"Payment Details","Dane płatności",module,BLPaczka_MagentoIntegration
+"Payment Type","Rodzaj płatności",module,BLPaczka_MagentoIntegration
+"Success!","Sukces!",module,BLPaczka_MagentoIntegration
+"Error!","Błąd!",module,BLPaczka_MagentoIntegration
+"This is a required field.","To pole jest wymagane!",module,BLPaczka_MagentoIntegration
+"Invalid format.","Format jest niepoprawny.",module,BLPaczka_MagentoIntegration
+"Please enter a valid email address (Ex: johndoe@domain.com).","Wpisz poprawny adres e-mail (na przykład: jan.kowalski@nazwadomeny.pl).",module,BLPaczka_MagentoIntegration
+"Please enter a number greater than 0 in this field.","Wpisz liczbę większą od 0.",module,BLPaczka_MagentoIntegration
+"Place an order for a package","Zamów przesyłkę",module,BLPaczka_MagentoIntegration
+"Estimate your package","Wyceń przesyłkę",module,BLPaczka_MagentoIntegration
+"If you reset this field, the point number will also be reset. Are you sure?","Jeśli zmienisz to pole, punkt odbioru zostanie zresetowany. Jesteś pewien?",module,BLPaczka_MagentoIntegration
+"Change","Zmień",module,BLPaczka_MagentoIntegration
+"Something went wrong!","Coś poszło nie tak!",module,BLPaczka_MagentoIntegration
+"Online Payment (Paynow.pl)","Płatności online (Paynow.pl)",module,BLPaczka_MagentoIntegration
+"Order ID is required!","ID zamówienia jest wymagane!",module,BLPaczka_MagentoIntegration
+"Order #%1 does not exists!","Zamówienie #%1 nie istnieje!",module,BLPaczka_MagentoIntegration
+"BLPaczka Shipment for Order #%1 does not exists!","Wysyłka BLPaczka dla zamówienia #%1 nie istnieje!",module,BLPaczka_MagentoIntegration
+"BLPaczka package has been ordered, but the Magento order has not been updated!","Zamówienie zostało utworzone w BLPaczka, ale wystąpił błąd zapisu zamówienia w Magento!",module,BLPaczka_MagentoIntegration
+"BLPaczka package has been ordered, but the Magento order has not been updated! %1","Zamówienie zostało utworzone w BLPaczka, ale wystąpił błąd zapisu zamówienia w Magento! %1",module,BLPaczka_MagentoIntegration
+"BLPaczka package has been ordered, but you have to check the shipment/invoice manually. %1","Zamówienie zostało utworzone w BLPaczka, ale musisz sprawdzić wysyłkę/fakturę ręcznie. %1",module,BLPaczka_MagentoIntegration
+"BLPaczka package has NOT been ordered and the Magento order has not been updated!","Zamówienie NIE zostało utworzone w BLPaczka oraz wystąpił błąd zapisu zamówienia w Magento!",module,BLPaczka_MagentoIntegration
+"Any courier","Dowolny kurier",module,BLPaczka_MagentoIntegration
+"Company","Firma",module,BLPaczka_MagentoIntegration
+"BLPaczka Shipping Method Ordered","Zamówiona metoda dostawy BLPaczka",module,BLPaczka_MagentoIntegration
+"Pay for the ordered package","Opłać zamówioną przesyłkę",module,BLPaczka_MagentoIntegration
+"Invoice created!","Rachunek utworzony!",module,BLPaczka_MagentoIntegration
+"Shipment created with BLPaczka! Shipping Method: %1","Wysyłka utworzona z BLPaczka! Metoda wysyłki: %1",module,BLPaczka_MagentoIntegration
+"Once the order is placed, its status will change to Completed (if it is not already) and an shipment/invoice will be issued (if possible, i.e. if the products can be shipped).","Po złożeniu zamówienia jego status zmieni się na Zakończone (jeśli jeszcze tak nie jest) i zostanie utworzona wysyłka/faktura (jeśli to możliwe, tzn. jeśli wysyłka produktów będzie możliwa).",module,BLPaczka_MagentoIntegration
+"Download waybill","Pobierz list przewozowy",module,BLPaczka_MagentoIntegration
+"Order #%1 - %2. You can now download your shipping label.","Zamówienie #%1 - %2. Może teraz pobrać etykietę wysyłkową.",module,BLPaczka_MagentoIntegration
+"There are no BLPaczka Shipping Labels related to selected items.","Brak etykiet wysyłkowych BLPaczka dla zaznaczonych pozycji.",module,BLPaczka_MagentoIntegration
+"There are no BLPaczka Orders related to selected items.","Brak zamówień BLPaczka dla zaznaczonych pozycji.",module,BLPaczka_MagentoIntegration
+"BLPaczka Shipment does not exists for the order #%1.","Wysyłka BLPaczka dla zamówienia #%1 nie istnieje.",module,BLPaczka_MagentoIntegration
+"BLPaczka Invoice does not exists for the order #%1.","Paragon/Fatkura BLPaczka dla zamówienia #%1 nie istnieje.",module,BLPaczka_MagentoIntegration
+"BLPaczka shipping label is empty!","Etykieta BLPaczka jest pusta!",module,BLPaczka_MagentoIntegration
+"BLPaczka Order ID is required!","ID zamówienia BLPaczka jest wymagane!",module,BLPaczka_MagentoIntegration
+"Print BLPaczka Shipping Label A4","Pobierz etykietę wysyłkową BLPaczka A4",module,BLPaczka_MagentoIntegration
+"Print BLPaczka Shipping Labels A4","Pobierz etykiety wysyłkowe BLPaczka A4",module,BLPaczka_MagentoIntegration
+"Print BLPaczka Shipping Label A6","Pobierz etykietę wysyłkową BLPaczka A6",module,BLPaczka_MagentoIntegration
+"Print BLPaczka Shipping Labels A6","Pobierz etykiety wysyłkowe BLPaczka A6",module,BLPaczka_MagentoIntegration
+"Order BLPaczka Shipment","Zamów przesyłkę BLPaczka",module,BLPaczka_MagentoIntegration
+"Order BLPaczka Shipments","Zamów przesyłki BLPaczka",module,BLPaczka_MagentoIntegration
+"BLPaczka Order ID: ","Numer zamówienia BLPaczka",module,BLPaczka_MagentoIntegration
+"BLPaczka Shipping Label Number: ","Numer etykiety wysyłkowej BLPaczka",module,BLPaczka_MagentoIntegration
+"The file has been downloaded!","Plik został pobrany!",module,BLPaczka_MagentoIntegration
+"The Shipping Label has been downloaded!","Etykieta została pobrana!",module,BLPaczka_MagentoIntegration
+"The Shipping Labels have been downloaded!","Etykiety zostały pobrane!",module,BLPaczka_MagentoIntegration
+"BLPaczka package has been canceled, but the Magento order has not been updated!","Zamówienie zostało anulowane w BLPaczka, ale wystąpił błąd zapisu zamówienia w Magento!",module,BLPaczka_MagentoIntegration
+"Cancel your package","Anuluj paczkę",module,BLPaczka_MagentoIntegration
+"Are you sure you want to cancel this package?","Jesteś pewien, że chcesz anulować przesyłkę?",module,BLPaczka_MagentoIntegration
+"The BLPaczka shipment has already been ordered!","Przesyłka BLPaczka została już zamówiona!",module,BLPaczka_MagentoIntegration
+"The BLPaczka shipment has been canceled!","Przesyłka BLPaczka została anulowana!",module,BLPaczka_MagentoIntegration
+"BLPaczkaShippingLabel%1.pdf","EtykietaBLPaczka%1.pdf",module,BLPaczka_MagentoIntegration
+"If you don't see any shipment/invoice after creating an order in BLPaczka, you can create it manually.","Jeśli nie zobaczysz żadnej wysyłki/faktury po utworzeniu zamówienia w BLPaczka, możesz utworzyć je ręcznie.",module,BLPaczka_MagentoIntegration

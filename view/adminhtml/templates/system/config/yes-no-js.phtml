@@ -1,0 +1,69 @@
+<?php
+/**
+ * @category  BLPaczka
+ * @package   BLPaczka\MagentoIntegration
+ * @copyright 2024 Copyright (c) BLPaczka (https://blpaczka.com)
+ *
+ * @var Template $block
+ * @var Escaper $escaper
+ */
+
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+?>
+<script>
+    require(['jquery'], function ($) {
+        let yesValue = '<?= $escaper->escapeHtml($block->getData('yesValue')) ?>';
+        let noValue = '<?= $escaper->escapeHtml($block->getData('noValue')) ?>';
+        let couriersConfigInheritSelector = '<?= $escaper->escapeHtml($block->getData('couriersConfigInheritSelector')) ?>';
+        let couriersWithPUDORequired = <?= $block->getData('couriersWithPUDORequired') ?>;
+        let couriersWithPUDOAvailable = <?= $block->getData('couriersWithPUDOAvailable') ?>;
+        let courierPUDOSelector = '<?= $escaper->escapeHtml($block->getData('courierPUDOSelector')) ?>';
+        let courierCodeSelector = '<?= $escaper->escapeHtml($block->getData('courierCodeSelector')) ?>';
+
+        let isRequired = function (currentCourierCode) {
+                return couriersWithPUDORequired.some(function (item) {
+                    return item === currentCourierCode;
+                });
+            },
+            isNotAvailable = function (currentCourierCode) {
+                return !couriersWithPUDOAvailable.some(function (item) {
+                    return item === currentCourierCode;
+                });
+            },
+            isDisabled = function (currentCourierCode) {
+                return isRequired(currentCourierCode) || isNotAvailable(currentCourierCode);
+            },
+            callback = function () {
+                let currentCourierCode = null;
+
+                if ($(courierCodeSelector).length > 0) {
+                    currentCourierCode = $(courierCodeSelector).val();
+                }
+
+                let isRowDisabled = isDisabled(currentCourierCode),
+                    isRowRequired = isRequired(currentCourierCode),
+                    isRowNotAvailable = isNotAvailable(currentCourierCode);
+
+                if ($(courierPUDOSelector).length > 0) {
+                    $(courierPUDOSelector).prop('disabled', isRowDisabled ? 'disabled' : '')
+
+                    if (isRowRequired) {
+                        $(courierPUDOSelector).val(yesValue);
+                    }
+
+                    if (isRowNotAvailable) {
+                        $(courierPUDOSelector).val(noValue).hide(0);
+                    } else {
+                        $(courierPUDOSelector).show(0);
+                    }
+                }
+            }
+
+        callback();
+        $(document).on('change', courierPUDOSelector, callback);
+        $(document).on('change', courierCodeSelector, callback);
+        $(document).on('change', couriersConfigInheritSelector, callback);
+    });
+</script>

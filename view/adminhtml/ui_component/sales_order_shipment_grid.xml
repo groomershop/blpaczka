@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  BLPaczka
+ * @package   BLPaczka\MagentoIntegration
+ * @copyright 2024 Copyright (c) BLPaczka (https://blpaczka.com)
+ *
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top">
+        <massaction name="listing_massaction">
+            <action name="print_shipping_label_blpaczka_a4">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="isBLPaczkaFile" xsi:type="boolean">true</item>
+                        <item name="blpaczkaDownloadUrl" xsi:type="string">blpaczka/shipment/massPrintShippingLabelA4</item>
+                        <item name="blpaczkaValidationUrl" xsi:type="string">blpaczka/shipment/massPrintShippingLabelA4Validation</item>
+                    </item>
+                </argument>
+                <settings>
+                    <url path="blpaczka/shipment/massPrintShippingLabelA4"/>
+                    <type>print_shipping_label_blpaczka_a4</type>
+                    <label translate="true">Print BLPaczka Shipping Labels A4</label>
+                </settings>
+            </action>
+            <action name="print_shipping_label_blpaczka_a6">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="isBLPaczkaFile" xsi:type="boolean">true</item>
+                        <item name="blpaczkaDownloadUrl" xsi:type="string">blpaczka/shipment/massPrintShippingLabelA6</item>
+                        <item name="blpaczkaValidationUrl" xsi:type="string">blpaczka/shipment/massPrintShippingLabelA6Validation</item>
+                    </item>
+                </argument>
+                <settings>
+                    <url path="blpaczka/shipment/massPrintShippingLabelA6"/>
+                    <type>print_shipping_label_blpaczka_a6</type>
+                    <label translate="true">Print BLPaczka Shipping Labels A6</label>
+                </settings>
+            </action>
+        </massaction>
+    </listingToolbar>
+</listing>

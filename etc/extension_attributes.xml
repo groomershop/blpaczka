@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  BLPaczka
+ * @package   BLPaczka\MagentoIntegration
+ * @copyright 2024 Copyright (c) BLPaczka (https://blpaczka.com)
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Quote\Api\Data\ShippingMethodInterface">
+        <attribute code="blpaczka_rate" type="BLPaczka\MagentoIntegration\Api\Data\BLPaczkaRateInterface" />
+    </extension_attributes>
+    <extension_attributes for="Magento\Quote\Api\Data\AddressInterface">
+        <attribute code="blpaczka_pudo_point" type="string"/>
+    </extension_attributes>
+</config>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  BLPaczka
+ * @package   BLPaczka\MagentoIntegration
+ * @copyright 2024 Copyright (c) BLPaczka (https://blpaczka.com)
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="BLPaczka\MagentoIntegration\Api\Data\BLPaczkaRateInterface" type="BLPaczka\MagentoIntegration\Model\BLPaczkaRate"/>
+    <preference for="BLPaczka\MagentoIntegration\Api\Data\Shipment\PaymentInterface" type="BLPaczka\MagentoIntegration\Model\Shipment\Payment"/>
+    <preference for="BLPaczka\MagentoIntegration\Api\Data\Shipment\RecipientInterface" type="BLPaczka\MagentoIntegration\Model\Shipment\Recipient"/>
+    <preference for="BLPaczka\MagentoIntegration\Api\Data\Shipment\SenderInterface" type="BLPaczka\MagentoIntegration\Model\Shipment\Sender"/>
+    <preference for="BLPaczka\MagentoIntegration\Api\Data\Shipment\ShippingDetailsInterface" type="BLPaczka\MagentoIntegration\Model\Shipment\ShippingDetails"/>
+    <preference for="BLPaczka\MagentoIntegration\Api\Data\Shipment\ShippingResponseInterface" type="BLPaczka\MagentoIntegration\Model\Shipment\ShippingResponse"/>
+    <preference for="BLPaczka\MagentoIntegration\Api\ConfigManagementInterface" type="BLPaczka\MagentoIntegration\Model\ConfigManagement"/>
+    <preference for="BLPaczka\MagentoIntegration\Api\ShippingManagementInterface" type="BLPaczka\MagentoIntegration\Model\ShippingManagement"/>
+    <preference for="BLPaczka\MagentoIntegration\Api\OrderManagementInterface" type="BLPaczka\MagentoIntegration\Model\OrderManagement"/>
+
+    <preference for="BLPaczka\MagentoIntegration\Api\Data\ApiResponseInterface" type="BLPaczka\MagentoIntegration\Service\Data\ApiResponse"/>
+    <preference for="BLPaczka\MagentoIntegration\Api\ApiServiceInterface" type="BLPaczka\MagentoIntegration\Service\ApiService"/>
+
+    <type name="Magento\Quote\Model\Cart\ShippingMethodConverter">
+        <plugin name="AddBLPaczkaRateToShippingMethodConverter" type="BLPaczka\MagentoIntegration\Plugin\AddBLPaczkaRateToShippingMethodConverter" sortOrder="1" disabled="false" />
+    </type>
+    <type name="Magento\Checkout\Api\ShippingInformationManagementInterface">
+        <plugin name="AddBLPaczkaPUDOPointToQuote" type="BLPaczka\MagentoIntegration\Plugin\AddBLPaczkaPUDOPointToQuote" sortOrder="10"/>
+    </type>
+    <type name="BLPaczka\MagentoIntegration\Api\ShippingManagementInterface">
+        <plugin name="AfterCreateBLPaczkaPackageOrder" type="BLPaczka\MagentoIntegration\Plugin\AfterCreateBLPaczkaPackageOrder" sortOrder="10"/>
+    </type>
+    <type name="BLPaczka\MagentoIntegration\Api\ShippingManagementInterface">
+        <plugin name="AfterCancelBLPaczkaPackageOrder" type="BLPaczka\MagentoIntegration\Plugin\AfterCancelBLPaczkaPackageOrder" sortOrder="10"/>
+    </type>
+</config>

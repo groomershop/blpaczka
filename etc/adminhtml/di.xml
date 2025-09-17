@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  BLPaczka
+ * @package   BLPaczka\MagentoIntegration
+ * @copyright 2024 Copyright (c) BLPaczka (https://blpaczka.com)
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Shipping\Controller\Adminhtml\Shipment\MassPrintShippingLabel">
+        <plugin name="PrepareBLPaczkaShippingLabelsBeforeShipmentMassAction" type="BLPaczka\MagentoIntegration\Plugin\PrepareBLPaczkaShippingLabelsBeforeShipmentMassAction" sortOrder="10"/>
+    </type>
+    <type name="Magento\Shipping\Controller\Adminhtml\Order\Shipment\MassPrintShippingLabel">
+        <plugin name="PrepareBLPaczkaShippingLabelsBeforeOrderMassAction" type="BLPaczka\MagentoIntegration\Plugin\PrepareBLPaczkaShippingLabelsBeforeOrderMassAction" sortOrder="10"/>
+    </type>
+</config>

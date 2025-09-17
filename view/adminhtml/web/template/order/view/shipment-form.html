@@ -1,0 +1,233 @@
+<form class="form" method="post"
+      data-bind="
+        attr: {id: formId},
+        mageInit: {
+            'validation': {}
+        }
+      ">
+
+    <div class="admin__page-section-item actions-section">
+        <!-- ko if: stepStates().create() -->
+        <div class="admin__page-section-item-content">
+            <p class="message message-info">
+                <span data-bind="i18n: 'Once the order is placed, its status will change to Completed (if it is not already) and an shipment/invoice will be issued (if possible, i.e. if the products can be shipped).'"></span>
+                <span data-bind="i18n: 'If you don\'t see any shipment/invoice after creating an order in BLPaczka, you can create it manually.'"></span>
+            </p>
+        </div>
+        <div class="admin__page-section-item-content">
+            <button type="button" class="action-default primary place-blpaczka-shipment" data-bind="i18n: 'Place an order for a package', click: function () { createBLPaczkaOrder() }"></button>
+            <button type="button" class="action-default primary estimate-blpaczka-shipment" data-bind="i18n: 'Estimate your package', click: function () { getValuation() }"></button>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: stepStates().cancel() -->
+        <div class="admin__page-section-item-content">
+            <button type="button" class="action-default primary" data-bind="i18n: 'Cancel your package', click: cancelBLPaczkaOrderedItem"></button>
+        </div>
+        <!-- /ko -->
+        <div class="admin__page-section-item-content">
+            <!-- ko if: !data.isAuthorized -->
+            <p class="message message-success"
+               data-bind="i18n: 'You have not been authorized by BLPaczka and can not create a shipment! Update the configuration and try again.'"></p>
+            <!-- /ko -->
+            <!-- ko if: message() -->
+            <p data-bind="html: message().title, attr: {class: `message message-${message().error ? 'error' : 'success'}`}"></p>
+            <!-- /ko -->
+        </div>
+    </div>
+
+    <!-- ko if: stepStates().create() && couriers() -->
+    <div class="admin__page-section-item couriers-section">
+        <!-- ko foreach: { data: couriers(), as: 'courier'} -->
+        <a href="#" class="courier admin__page-section-item-content" data-bind="
+            click: function () {
+                $parent.chooseCourier(courier)
+            },
+            css: {
+                selected: $parent.courier() && $parent.courier().Courier.id === courier.Courier.id
+            }
+        ">
+            <span class="images">
+                <span><img data-bind="attr: {src: $parent.data.logoUrl}"/></span>
+                <!-- ko if: courier.Courier.logo -->
+                <span><img data-bind="attr: {src: courier.Courier.logo}"/></span>
+                <!-- /ko -->
+            </span>
+            <span class="title" data-bind="text: courier.Courier.name"></span>
+            <strong class="title" data-bind="text: `${courier.Price.value} PLN`"></strong>
+        </a>
+        <!-- /ko -->
+    </div>
+    <!-- /ko -->
+
+    <!-- ko if: stepStates().cancel() -->
+    <div class="admin__page-section-item couriers-section">
+        <div class="courier admin__page-section-item-content selected">
+            <strong class="title" data-bind="i18n: 'BLPaczka Shipping Method Ordered'"></strong>
+            <span class="images">
+                <span><img data-bind="attr: {src: data.logoUrl}"/></span>
+            </span>
+            <span class="title" data-bind="text: blpaczkaOrderedItem().name"></span>
+            <strong class="title" data-bind="text: `${blpaczkaOrderedItem().price} PLN`"></strong>
+            <!-- ko if: blpaczkaOrderedItem().id -->
+            <span class="title">
+                <span data-bind="i18n: 'BLPaczka Order ID: '"></span>
+                <span data-bind="text: blpaczkaOrderedItem().id"></span>
+            </span>
+            <!-- /ko -->
+            <!-- ko if: blpaczkaOrderedItem().waybill_no -->
+            <span class="title">
+                <span data-bind="i18n: 'BLPaczka Shipping Label Number: '"></span>
+                <span data-bind="text: blpaczkaOrderedItem().waybill_no"></span>
+            </span>
+            <!-- /ko -->
+            <!-- ko if: blpaczkaOrderedItemShippingLabelA4Link() -->
+            <a class="title" data-bind="
+                i18n: 'Print BLPaczka Shipping Label A4',
+                click: function () {
+                    downloadShippingLabel(
+                        blpaczkaOrderedItemShippingLabelA4LinkValidation(),
+                        blpaczkaOrderedItemShippingLabelA4Link()
+                    )
+                }
+            "></a>
+            <!-- /ko -->
+            <!-- ko if: blpaczkaOrderedItemShippingLabelA6Link() -->
+            <a class="title" data-bind="
+                i18n: 'Print BLPaczka Shipping Label A6',
+                click: function () {
+                    downloadShippingLabel(
+                        blpaczkaOrderedItemShippingLabelA6LinkValidation(),
+                        blpaczkaOrderedItemShippingLabelA6Link()
+                    )
+                }
+            "></a>
+            <!-- /ko -->
+        </div>
+    </div>
+    <!-- /ko -->
+
+    <!-- ko if: stepStates().create() -->
+        <!-- ko foreach: { data: Object.values(fieldSets()), as: 'fieldSet'} -->
+        <div class="admin__page-section-item" data-bind="attr: {class: `admin__page-section-item ${fieldSet.class}`}">
+            <div class="admin__page-section-item-title">
+                <span class="title" data-bind="text: fieldSet.title"></span>
+            </div>
+            <div class="admin__page-section-item-content" data-bind="foreach: { data: Object.values(fieldSet.fields), as: 'field' }">
+                <div class="admin__field">
+                    <label class="admin__field-label" data-bind="attr:{for: field.id}">
+                        <strong class="title" data-bind="text: field.title"></strong>
+                    </label>
+                    <!-- ko if:  ['text', 'number', 'time', 'date', 'email', 'tel'].includes(field.type) -->
+                    <div class="admin__field admin__field-option">
+                        <input class="admin__control-text" data-bind="
+                        value: field.value,
+                        enable: !field.disabled(),
+                        valueUpdate: 'keyup',
+                        attr: {
+                            id: field.id,
+                            name: field.id,
+                            type: field.type,
+                            'data-validate': JSON.stringify(field.validationRules)
+                        },
+                        event: {
+                            change: $parents[1].validateElement
+                        }
+                        "/>
+                        <!-- ko if: (!field.disabled() && field.id === 'blpaczka_recipientdetails_recipientpointnumber') -->
+                        <a href="#" data-bind="
+                            i18n: $parents[1].mapTitle(),
+                            click: function () { $parents[1].openMap(`#${field.id}-map-modal`) }
+                        "></a>
+                        <!-- /ko -->
+                        <!-- ko if: field.id === 'blpaczka_recipientdetails_recipientpointnumber' -->
+                        <div class="blpaczka-map-modal" data-bind="
+                            attr: { id: `${field.id}-map-modal` },
+                            mageInit: {
+                                'Magento_Ui/js/modal/modal': {
+                                    'type': 'popup',
+                                    'title': $parents[1].mapTitle(),
+                                    'responsive': true,
+                                    'innerScroll': true,
+                                    'buttons': [{
+                                        text: jQuery.mage.__('Close'),
+                                        class: 'action close'
+                                    }]
+                                }
+                            }
+                        ">
+                            <iframe data-bind="attr: { src: field.mapUrl() }"></iframe>
+                        </div>
+                        <!-- /ko -->
+                    </div>
+                    <!-- /ko -->
+
+                    <!-- ko if: field.type === 'checkbox' -->
+                    <div class="admin__field admin__field-option">
+                        <input class="admin__control-checkbox" data-bind="
+                            checked: field.value,
+                            enable: !field.disabled(),
+                            valueUpdate: 'keyup',
+                            attr: {
+                                id: field.id,
+                                name: field.id,
+                                type: field.type,
+                                'data-validate': JSON.stringify(field.validationRules)
+                            },
+                            event: {
+                                change: $parents[1].validateElement
+                            }
+                            "/>
+                        <label class="admin__field-label" data-bind="attr:{for: field.id}"></label>
+                    </div>
+                    <!-- /ko -->
+
+                    <!-- ko if: field.type === 'select' -->
+                    <div class="admin__field admin__field-control">
+                        <select class="admin__control-select" data-bind="
+                            value: field.value,
+                            enable: !field.disabled(),
+                            attr: {
+                                id: field.id,
+                                name: field.id,
+                                'data-validate': JSON.stringify(field.validationRules)
+                            },
+                            event: {
+                                change: $parents[1].validateElement
+                            }
+                        ">
+                            <option data-bind="value: null" disabled></option>
+                            <!-- ko foreach: { data: field.options, as: 'item'} -->
+                            <option data-bind="value: item.code, i18n: item.title"></option>
+                            <!-- /ko -->
+                        </select>
+                    </div>
+                    <!-- /ko -->
+
+                    <!-- ko if: field.type === 'textarea' -->
+                    <div class="admin__field admin__field-option">
+                        <textarea class="admin__control-text" rows="5" cols="25" data-bind="
+                            textInput: field.value,
+                            enable: !field.disabled(),
+                            attr: {
+                                id: field.id,
+                                name: field.id,
+                                'data-validate': JSON.stringify(field.validationRules)
+                            },
+                            event: {
+                                change: $parents[1].validateElement
+                            }
+                        "></textarea>
+                    </div>
+                    <!-- /ko -->
+
+                    <!-- ko if: field.type === 'plaintext' -->
+                    <div class="admin__field admin__field-option">
+                        <span data-bind="text: field.value()"></span>
+                    </div>
+                    <!-- /ko -->
+                </div>
+            </div>
+        </div>
+        <!-- /ko -->
+    <!-- /ko -->
+</form>

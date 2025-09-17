@@ -1,0 +1,61 @@
+<?php
+/**
+ * @category  BLPaczka
+ * @package   BLPaczka\MagentoIntegration
+ * @copyright 2024 Copyright (c) BLPaczka (https://blpaczka.com)
+ *
+ * @var ConnectionForm $block
+ * @var Escaper $escaper
+ */
+
+use BLPaczka\MagentoIntegration\Block\Adminhtml\System\Config\Field\ConnectionForm;
+use Magento\Framework\Escaper;
+
+?>
+<p>
+    <a id="blpaczka-test-connection" href="<?= $escaper->escapeUrl($block->getLinkUrl()) ?>" class="action action-secondary"><?= __('Test Connection') ?></a>
+</p>
+<p>
+    <a href="https://blpaczka.com/rejestracja" target="_blank">
+        <strong><?= __('How to get Email and Api Key?') ?></strong>
+    </a>
+</p>
+<p class="message message-warning">
+    <span><?= __('Save all changes before check!') ?></span>
+</p>
+<p id="blpaczka-connection-message" class="message" style="display: none;">Test</p>
+<script>
+    require(['jquery'], function($) {
+        let message = $('#blpaczka-connection-message');
+
+        $('#blpaczka-test-connection').click(function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            message.hide(0);
+
+            $.ajax({
+                url: $(this).attr('href'),
+                type: 'POST',
+                dataType: 'json',
+                data: {form_key: window.FORM_KEY},
+                showLoader: true,
+            }).done(function (data) {
+                message
+                    .removeClass('message-error')
+                    .removeClass('message-success')
+                    .addClass(!!data['status'] ? 'message-success' : 'message-error')
+                    .text(data['message'] ?? $.mage.__('You are connected with BLPaczka!'))
+                    .show(0);
+            }).fail(function () {
+                message
+                    .removeClass('message-error')
+                    .removeClass('message-success')
+                    .addClass('message-error')
+                    .text($.mage.__('You are not connected with BLPaczka! Save configuration and try again.'))
+                    .show(0);
+            });
+
+        });
+    });
+</script>

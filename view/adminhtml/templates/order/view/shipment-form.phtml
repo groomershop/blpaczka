@@ -1,0 +1,41 @@
+<?php
+/**
+ * @category  BLPaczka
+ * @package   BLPaczka\MagentoIntegration
+ * @copyright 2024 Copyright (c) BLPaczka (https://blpaczka.com)
+ *
+ * @var ShipmentForm $block
+ * @var Escaper $escaper
+ */
+
+use BLPaczka\MagentoIntegration\Block\Adminhtml\Order\View\ShipmentForm;
+use Magento\Framework\Escaper;
+
+?>
+
+<?php if ($block->isValid()): ?>
+    <section id="blpaczka-shipment-section" class="admin__page-section" data-bind="scope: 'blpaczka-shipment-form-scope'">
+        <div class="admin__page-section-title">
+            <img src="<?= $escaper->escapeUrl($block->getLogoUrl()) ?>"/>
+            <span class="title"><?= __('BLPaczka Shipment') ?></span>
+        </div>
+        <div class="admin__page-section-content">
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        </div>
+    </section>
+
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "blpaczka-shipment-form-scope": {
+                            "component": "BLPaczka_MagentoIntegration/js/order/view/shipment-form",
+                            "data": <?= $block->getDataJson() ?>
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<?php endif; ?>

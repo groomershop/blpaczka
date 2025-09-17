@@ -1,0 +1,15 @@
+{
+    "quote": {
+        "column": {
+            "blpaczka_pudo_point": true
+        }
+    },
+    "sales_order": {
+        "column": {
+            "blpaczka_pudo_point": true,
+            "blpaczka_order_data": true,
+            "blpaczka_shipping_label_blpaczka_a4": true,
+            "blpaczka_shipping_label_blpaczka_a6": true
+        }
+    }
+}

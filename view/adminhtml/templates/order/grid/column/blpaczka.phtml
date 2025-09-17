@@ -1,0 +1,106 @@
+<?php
+/**
+ * @category  BLPaczka
+ * @package   BLPaczka\MagentoIntegration
+ * @copyright 2024 Copyright (c) BLPaczka (https://blpaczka.com)
+ *
+ * @var Template $block
+ * @var Escaper $escaper
+ */
+
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+?>
+
+<?php if ($block->getData('is_valid')): ?>
+    <div id="blpaczka-column-<?= $escaper->escapeHtml($block->getData('order_id')) ?>" class="blpaczka-column">
+        <img width="100px" src="<?= $escaper->escapeUrl($block->getData('logo_url')) ?>"/>
+
+        <?php if ($block->getData('has_blpaczka_order')): ?>
+            <?php if ($block->getData('waybill_link_a4')): ?>
+                <a class="file"
+                   data-validation-href="<?= $escaper->escapeUrl($block->getData('waybill_link_a4_validation')) ?>"
+                   href="<?= $escaper->escapeUrl($block->getData('waybill_link_a4')) ?>">
+                    <?= __('Print BLPaczka Shipping Label A4') ?>
+                </a>
+            <?php endif; ?>
+            <?php if ($block->getData('waybill_link_a6')): ?>
+                <a class="file"
+                   data-validation-href="<?= $escaper->escapeUrl($block->getData('waybill_link_a6_validation')) ?>"
+                   href="<?= $escaper->escapeUrl($block->getData('waybill_link_a6')) ?>">
+                    <?= __('Print BLPaczka Shipping Label A6') ?>
+                </a>
+            <?php endif; ?>
+        <?php else: ?>
+            <?php if ($block->getData('create_order_url')): ?>
+                <a class="link" href="<?= $escaper->escapeUrl($block->getData('create_order_url')) ?>">
+                    <?= __('Order BLPaczka Shipment') ?>
+                </a>
+            <?php endif; ?>
+        <?php endif; ?>
+        <script>
+            require([
+                'jquery',
+                'mage/translate'
+            ], function ($) {
+                let columnId = 'blpaczka-column-<?= $escaper->escapeHtml($block->getData('order_id')) ?>',
+                    _addSuccessMessage = function (message) {
+                        $('#messages .messages').append(`<div class="message message-success success">${message}</div>`);
+                    },
+                    _addErrorMessage = function (message) {
+                        $('#messages .messages').append(`<div class="message message-error error">${message}</div>`);
+                        window.scrollTo(0, 0);
+                    },
+                    _clearOrCreateMessages = function () {
+                        if ($('#messages').length === 0) {
+                            $('.page-content').prepend('<div id="messages"><div class="messages"></div></div>');
+                        } else {
+                            $('#messages .messages .message').remove();
+                        }
+                    }
+
+                $(`#${columnId} a.link`).click(function (e) {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+
+                    _clearOrCreateMessages();
+
+                    $('body').trigger('processStart');
+                    window.location.href = $(this).attr('href');
+                });
+
+                $(`#${columnId} a.file`).click(function (e) {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+
+                    _clearOrCreateMessages();
+
+                    let validationHref = $(this).attr('data-validation-href'),
+                        href = $(this).attr('href');
+
+                    if (validationHref && href) {
+                        $.ajax({
+                            showLoader: true,
+                            url: validationHref,
+                            data: {form_key: window.FORM_KEY},
+                            type: 'POST',
+                            dataType: 'json'
+                        })
+                            .done(function (response) {
+                                if (!!response.success) {
+                                    window.location.href = href;
+                                    _addSuccessMessage(response.message);
+                                } else {
+                                    _addErrorMessage(response.message);
+                                }
+                            })
+                            .fail(function () {
+                                window.location.reload();
+                            })
+                    }
+                });
+            });
+        </script>
+    </div>
+<?php endif; ?>
