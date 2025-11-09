@@ -160,7 +160,7 @@ define([
 
                             $(shippingMethodData.modalLocalSelector).css({
                                     'width': '1000px',
-                                    'height': '80vh',
+                                    'height': 'calc(90vh - 28rem)',
                                     'max-width': '100%',
                                     'max-height': '100vh',
                                     'min-height': '500px',
