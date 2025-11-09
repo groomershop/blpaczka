@@ -71,6 +71,7 @@ define([
                 mapInfoSelector: `${labelSelector} .blpaczka-map-info`,
                 mapActionSelector: `${labelSelector} .blpaczka-map-action`,
                 mapActionInitMessage: $.mage.__('Select a collection point'),
+                mapActionSelectedMessage: $.mage.__('Selected point: %1'),
                 mapActionUpdateMessage: $.mage.__('Change collection point'),
                 modalGlobalSelector: `.map-modal[data-blpaczka-label-id="${labelSelector}"]`,
                 modalLocalSelector: `${labelSelector} .map-modal`,
@@ -228,7 +229,7 @@ define([
                 if (event.data.type === 'SELECT_CHANGE' && isModalVisible && (isMapEvent || isMapEventAlternative)) {
                     let point = event.data.value;
 
-                    $(shippingMethodData.mapActionSelector).find('a').text(shippingMethodData.mapActionUpdateMessage);
+                    $(shippingMethodData.mapActionSelector).find('a').text(shippingMethodData.mapActionSelectedMessage.replace('%1', point['name']) + '<br />' + shippingMethodData.mapActionUpdateMessage);
                     mapComponent.showMapInfo(shippingMethodData, point['pointData']);
 
                     blpaczkaPointName(point['name'])
