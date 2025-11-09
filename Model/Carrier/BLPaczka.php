@@ -97,10 +97,10 @@ class BLPaczka extends AbstractCarrier implements CarrierInterface
             $method = $this->rateMethodFactory->create();
 
             $method->setCarrier($shippingCode);
-            $method->setCarrierTitle($shippingName);
+            $method->setCarrierTitle($courierConfig['courier_name'] ?? $shippingName);
 
             $method->setMethod($courierConfig['courier_code'] ?? $shippingCode);
-            $method->setMethodTitle($courierConfig['courier_name'] ?? $shippingName);
+            $method->setMethodTitle($shippingName);
             $method->setPrice($courierConfig['courier_cost'] ?? $shippingCost);
             $method->setCost($courierConfig['courier_cost'] ?? $shippingCost);
 

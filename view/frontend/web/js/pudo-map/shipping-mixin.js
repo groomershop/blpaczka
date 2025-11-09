@@ -48,7 +48,7 @@ define([
         },
 
         getShippingMethodData: function (shippingMethod) {
-            let methodLabelId = `label_method_${shippingMethod['method_code']}_${shippingMethod['carrier_code']}`,
+            let methodLabelId = `label_carrier_${shippingMethod['method_code']}_${shippingMethod['carrier_code']}`,
                 labelSelector = `#${methodLabelId}`,
                 postCode = quote && quote.shippingAddress ? quote.shippingAddress().postcode : '',
                 mapUrl = shippingMethod['extension_attributes']['blpaczka_rate']['pudo_map_url'];
