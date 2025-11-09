@@ -66,6 +66,9 @@ define([
                 pudoMapUrl: mapUrl,
                 mapOriginUrl: shippingMethod['extension_attributes']['blpaczka_rate']['map_origin_url'],
 
+                shippingPointIdInput: `$('[name="swissup_checkout_field[shipping_point_id]"]')`,
+                shippingPointNameInput: `$('[name="swissup_checkout_field[shipping_point_name]"]')`,
+
                 mapInfoSelectorAll: `.blpaczka-map-info`,
                 mapActionSelectorAll: `.blpaczka-map-action`,
                 mapInfoSelector: `${labelSelector} .blpaczka-map-info`,
@@ -231,6 +234,13 @@ define([
 
                     $(shippingMethodData.mapActionSelector).find('a').text(shippingMethodData.mapActionSelectedMessage.replace('%1', point['name']) + '<br />' + shippingMethodData.mapActionUpdateMessage);
                     mapComponent.showMapInfo(shippingMethodData, point['pointData']);
+
+                    if (shippingMethodData.shippingPointIdInput !== null) {
+                    	shippingPointIdInput.val(point['name']).trigger('keyup');
+                    }
+                    if (shippingMethodData.shippingPointNameInput !== null) {
+                    	shippingPointNameInput.val('Punkt ' + point['name']).trigger('keyup');
+                    }
 
                     blpaczkaPointName(point['name'])
                     blpaczkaPointHtml(point['pointData'])
