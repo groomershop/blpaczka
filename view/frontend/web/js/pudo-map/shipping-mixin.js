@@ -74,7 +74,7 @@ define([
                 mapInfoSelector: `${labelSelector} .blpaczka-map-info`,
                 mapActionSelector: `${labelSelector} .blpaczka-map-action`,
                 mapActionInitMessage: $.mage.__('Select a collection point'),
-                mapActionSelectedMessage: $.mage.__('Selected point: %1'),
+                mapActionSelectedMessage: $.mage.__('Selected: %1. '),
                 mapActionUpdateMessage: $.mage.__('Change collection point'),
                 modalGlobalSelector: `.map-modal[data-blpaczka-label-id="${labelSelector}"]`,
                 modalLocalSelector: `${labelSelector} .map-modal`,
@@ -235,13 +235,6 @@ define([
                     $(shippingMethodData.mapActionSelector).find('a').text(shippingMethodData.mapActionSelectedMessage.replace('%1', point['name']) + '<br />' + shippingMethodData.mapActionUpdateMessage);
                     mapComponent.showMapInfo(shippingMethodData, point['pointData']);
 
-                    if (shippingMethodData.shippingPointIdInput !== null) {
-                    	shippingPointIdInput.val(point['name']).trigger('keyup');
-                    }
-                    if (shippingMethodData.shippingPointNameInput !== null) {
-                    	shippingPointNameInput.val('Punkt ' + point['name']).trigger('keyup');
-                    }
-
                     blpaczkaPointName(point['name'])
                     blpaczkaPointHtml(point['pointData'])
 
@@ -251,6 +244,13 @@ define([
                     });
 
                     $(modalParent).find('.action-close').click();
+
+                    if (shippingMethodData.shippingPointIdInput !== null) {
+                    	shippingMethodData.shippingPointIdInput.val(point['name']).trigger('keyup');
+                    }
+                    if (shippingMethodData.shippingPointNameInput !== null) {
+                    	shippingMethodData.shippingPointNameInput.val('Punkt ' + point['name']).trigger('keyup');
+                    }
                 }
 
                 mapComponent.listeners[shippingMethodData.methodCode] = true;

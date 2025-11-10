@@ -1,7 +1,7 @@
 "BLPaczka Shipping Service", "Dostawy BLPaczka",module,BLPaczka_MagentoIntegration
+"Selected: %1. ", "Wybrano: %1. ",module,BLPaczka_MagentoIntegration
 "Select a collection point", "Wybierz punkt odbioru",module,BLPaczka_MagentoIntegration
 "Change collection point", "Zmień punkt odbioru",module,BLPaczka_MagentoIntegration
-"Selected point: %1", "Wybrano punkt: %1",module,BLPaczka_MagentoIntegration
 "%1: Collection points map", "%1: Mapa punktów odbioru",module,BLPaczka_MagentoIntegration
 "Close", "Zamknij",module,BLPaczka_MagentoIntegration
 "The collection point is required. Open the map and select the point.", "Punkt odbioru jest wymagany. Otwórz mapę i wybierz punkt.",module,BLPaczka_MagentoIntegration
