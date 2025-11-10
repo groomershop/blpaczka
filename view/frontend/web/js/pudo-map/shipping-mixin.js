@@ -131,7 +131,7 @@ define([
                 }
 
                 if (blpaczkaPointName()) {
-                    mapComponent.showMapInfo(shippingMethodData, blpaczkaPointHtml());
+                    $(shippingMethodData.mapActionSelector).find('a').text(shippingMethodData.mapActionSelectedMessage.replace('%1', blpaczkaPointName()) + shippingMethodData.mapActionUpdateMessage);
                     mapComponent.setPUDOPoint({
                         name: blpaczkaPointName(),
                         html: blpaczkaPointHtml(),
@@ -232,8 +232,7 @@ define([
                 if (event.data.type === 'SELECT_CHANGE' && isModalVisible && (isMapEvent || isMapEventAlternative)) {
                     let point = event.data.value;
 
-                    $(shippingMethodData.mapActionSelector).find('a').text(shippingMethodData.mapActionSelectedMessage.replace('%1', point['name']) + '<br />' + shippingMethodData.mapActionUpdateMessage);
-                    mapComponent.showMapInfo(shippingMethodData, point['pointData']);
+                    $(shippingMethodData.mapActionSelector).find('a').text(shippingMethodData.mapActionSelectedMessage.replace('%1', point['name']) + shippingMethodData.mapActionUpdateMessage);
 
                     blpaczkaPointName(point['name'])
                     blpaczkaPointHtml(point['pointData'])
